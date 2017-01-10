@@ -1,4 +1,6 @@
 # editorconfig.org
+# My Notes: After installing the EditorConfig plugin for vs code (or whatever editor is being used), these settings will be inforced by the editor to maintain
+# consistacy across all the files when edited by developers
 root = true
 
 [*]
