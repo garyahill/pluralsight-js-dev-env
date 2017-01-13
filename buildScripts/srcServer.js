@@ -3,8 +3,8 @@ var express = require("express");
 var path = require("path");
 var open = require("open")
 
-var port = 3000;
-var app = express();
+const port = 3000;
+const app = express();
 
 // req = request; res = response;
 // __dirname is a special command;
