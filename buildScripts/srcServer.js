@@ -1,10 +1,20 @@
-// load express module and other needed modules
-var express = require("express");
-var path = require("path");
-var open = require("open")
+// load webserver and other modules
+import express from "express";
+import path from "path";
+import open from "open";
+// load webpack and the configuration
+import webpack from "webpack";
+import config from "../webpack.config.dev";
 
 const port = 3000;
 const app = express();
+const compiler = webpack(config);
+
+// integrate webpack with express
+app.use(require("webpack-dev-middleware")(compiler, {
+  noInfo: true,
+  publicPath: config.output.publicPath
+}));
 
 // req = request; res = response;
 // __dirname is a special command;
