@@ -5,4 +5,6 @@ import numeral from "numeral";
 
 const courseValue = numeral(1000).format("$0,0.00");
 // using the ES6 template string feature so we use back-ticks vs apostrophes
-console.log(`I would pay ${courseValue} for this course!`);
+
+// (note we wouldn't normally allow this in client code)
+console.log(`I would pay ${courseValue} for this course!`);  // eslint-disable-line no-console

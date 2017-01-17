@@ -1,0 +1,23 @@
+{
+  "root": true, //tells esling that this is "the" eslint configuration file to use; otherwise by default it will look in all parent folders
+  "extends": [
+    "eslint:recommended", // uses eslint recommended rules
+    "plugin:import/errors", // plugins provide enhanced linting, adding this for es6 imports; will make an invalid import statement immediatly show as error
+    "plugin:import/warnings"
+  ],
+  // defines the version of javascript
+  "parserOptions": {
+    "ecmaVersion": 7, // es2016
+    "sourceType": "module" // useing standard javascript modules
+  },
+  // environment that eslint should be aware of
+  "env": {
+    "browser": true,
+    "node": true,
+    "mocha": true
+  },
+  // here we can define rules that we want to override from the reccomended ones we set up
+  "rules": {
+    "no-console": 1 // 0 = 0ff, 1 = warning, 2 = Error (breaks the build);  no conlsole = not allowing writing to the console
+  }
+}
