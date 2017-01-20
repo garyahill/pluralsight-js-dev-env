@@ -11,7 +11,7 @@ describe("Our first test", () => {
 
 describe("index.html", () => {
   // passing in done function which we will invoke when we are finished testing so mocha knows it is done
-  it("should say hello", (done) => {
+  it("should have H1 that says 'Users'", (done) => {
      // reference to our html file
     const index = fs.readFileSync("./src/index.html", "utf-8");
     // defining the js dom environment; pass the reference to our physical file to create this
@@ -22,7 +22,7 @@ describe("index.html", () => {
       // finds the element in the dom (getting the first h1)
       const h1 = window.document.getElementsByTagName("h1")[0];
       // assert that we will have a particular value
-      expect(h1.innerHTML).to.equal("Hello World!");
+      expect(h1.innerHTML).to.equal("Users");
       // when we call jsdom there is an asynchronous call that occurs.  We have to set up our test to be asynch.
       done();
       // free up memory from in-memory dom

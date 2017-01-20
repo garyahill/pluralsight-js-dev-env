@@ -25,6 +25,15 @@ app.get("/", function(req, res) {
   res.sendFile(path.join(__dirname, "../src/index.html"));
 });
 
+// setting up an mocked api call to get users (preten this hits a db)
+app.get("/users", function(req, res){
+  res.json([
+    {"id": 1, "firstName": "Bob", "lastName": "Smith", "email": "bob@gmail.com"},
+    {"id": 2, "firstName": "Tammy", "lastName": "Norton", "email": "tnorton@gmail.com"},
+    {"id": 3, "firstName": "Tina", "lastName": "Lee", "email": "t.lee@gmail.com"}
+  ]);
+});
+
 // configuring the web sever to listen on a port we set
 app.listen(port, function(err){
   if (err) {
