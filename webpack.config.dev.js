@@ -1,4 +1,5 @@
 import path from 'path';
+import HtmlWepackPlugin from 'html-webpack-plugin';
 
 // configuration object for web pack
 export default {
@@ -22,7 +23,13 @@ export default {
     filename: 'bundle.js'
   },
   // webpack plugins - to enhance webpacks power (ex: hot reload, linting etc)
-  plugins: [],
+  plugins: [
+        // add plugin for generating our index.html file (uses our index.html as the souce template)
+    new HtmlWepackPlugin({
+      template: "src/index.html",
+      inject: true
+    })
+  ],
   // file types we want webpack to handle (loaders); we are handling javascript and css here
   // there are other syntaxes as well so other exaples may look a little different
   module: {

@@ -2,27 +2,23 @@
 import express from "express";
 import path from "path";
 import open from "open";
-// load webpack and the configuration
-import webpack from "webpack";
-import config from "../webpack.config.dev";
+import compression from "compression";
 
 /* eslint-disable no-console */
 const port = 3000;
 const app = express();
-const compiler = webpack(config);
 
-// integrate webpack with express
-app.use(require("webpack-dev-middleware")(compiler, {
-  noInfo: true,
-  publicPath: config.output.publicPath
-}));
+// gzip compress files (not working for some reason)
+app.use(compression());
+// add express support for serving static files
+app.use(express.static("dist"));
 
 // req = request; res = response;
 // __dirname is a special command;
 // "/" requesting the root
 // sending the file that we specify "index.html"
 app.get("/", function(req, res) {
-  res.sendFile(path.join(__dirname, "../src/index.html"));
+  res.sendFile(path.join(__dirname, "../dist/index.html"));
 });
 
 // setting up an mocked api call to get users (pretend this hits a db)
